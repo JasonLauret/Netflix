@@ -19,7 +19,7 @@ class User
     #[ORM\Column(type: 'string', length: 255)]
     private $firstName;
 
-    #[ORM\Column(type: 'date', nullable: true)]
+    #[ORM\Column(type: 'string', nullable: true)]
     private $birthDate;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -57,12 +57,12 @@ class User
         return $this;
     }
 
-    public function getBirthDate(): ?\DateTimeInterface
+    public function getBirthDate(): ?string
     {
         return $this->birthDate;
     }
 
-    public function setBirthDate(?\DateTimeInterface $birthDate): self
+    public function setBirthDate(?string $birthDate): self
     {
         $this->birthDate = $birthDate;
 
