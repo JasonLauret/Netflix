@@ -1,0 +1,24 @@
+/* Navbar */
+nav a.titreNetflix {
+    padding: 0;
+    color: Red !important;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+nav a {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+/* Pages */
+
+.pageListFilm, .pageShowFilm{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.pageListFilm h2, .pageShowFilm h2 {
+    font-size: 50px;
+    margin-bottom: 50px;
+}
