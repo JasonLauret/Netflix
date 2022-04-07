@@ -3,8 +3,10 @@
 {% block title %}Films{% endblock %}
 
 {% block body %}
+
 <section class="pageListFilm">
     <h2>Liste des films</h2>
+    <a class="btn btn-secondary" href="{{ path('createFilm') }}">Ajouter un film</a>
     <div class="row d-flex justify-content-center">
     {% for film in films %}
         <div class="col-3 d-flex justify-content-center g-5">

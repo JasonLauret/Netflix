@@ -2,7 +2,10 @@
 
 {% block body %}
     <section class="pageShowFilm">
-        <h2>Affiche du film {{ showFilm.titre }}</h2>
+        <div class="d-flex align-items-center">
+            <h2>Affiche du film {{ showFilm.titre }}</h2>
+            <a class="btn btn-secondary" href="{{ path('editFilm', {'id': film.id}) }}">Modifier le film</a> 
+        </div>
         <div class="card bg-dark text-white">
             <img src="{{ showFilm.image }}" class="card-img-top" alt="Image du film {{ showFilm.titre }}">
             <div class="card-img-overlay">

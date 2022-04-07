@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formFilm 'bootstrap_5_layout.html.twig' %}
+
+{% block title %}Films{% endblock %}
+
+{% block body %}
+<section class="pageListFilm">
+    
+    {{ form_start(formFilm) }}
+
+        {{ form_row(formFilm.titre) }}
+        {{ form_row(formFilm.description) }}
+        {{ form_row(formFilm.image) }}
+        {{ form_row(formFilm.duree) }}
+
+        <button type="submit" class="btn btn-secondary">
+        {% if editMode %}
+            Enregistrer les modifications
+        {% else %}
+            Ajouter un film
+        {% endif %}
+            
+        </button>
+
+    {{ form_end(formFilm) }}
+
+</section>
+    
+{% endblock %}
