@@ -56,4 +56,12 @@ class FilmController extends AbstractController
             'film' => $film
         ]);
     }
+    #[Route('/film/remove/{id}', name:'removeFilm')]
+    public function remove(Film $film, EntityManagerInterface $em){
+        
+        $em->remove($film);
+        $em->flush();
+
+        return $this->redirectToRoute('film');
+    }
 }
