@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User
+class User implements PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -19,7 +21,7 @@ class User
     #[ORM\Column(type: 'string', length: 255)]
     private $firstName;
 
-    #[ORM\Column(type: 'string', nullable: true)]
+    #[ORM\Column(type: 'date', nullable: true)]
     private $birthDate;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -57,12 +59,12 @@ class User
         return $this;
     }
 
-    public function getBirthDate(): ?string
+    public function getBirthDate(): \DateTimeInterface
     {
         return $this->birthDate;
     }
 
-    public function setBirthDate(?string $birthDate): self
+    public function setBirthDate(\DateTimeInterface $birthDate): self
     {
         $this->birthDate = $birthDate;
 
