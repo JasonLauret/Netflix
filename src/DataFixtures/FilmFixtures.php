@@ -14,7 +14,7 @@ class FilmFixtures extends Fixture
             $film = new Film();
             $film->setTitre("Film n°$i")
                     ->setDescription("Description du film n°$i")
-                    ->setImage("https://via.placeholder.com/300x150")
+                    ->setImage("https://via.placeholder.com/200x250")
                     ->setDuree("2h00");
             $manager->persist($film);
         }

@@ -22,3 +22,17 @@ nav a {
     font-size: 50px;
     margin-bottom: 50px;
 }
+
+/* Page affichage film */
+a.card-film {
+    color: white;
+}
+
+a.card-film img {
+    filter: blur(1px);
+}
+.contenant {
+    position: relative;
+    bottom: 80%;
+    left: 5%;
+}
