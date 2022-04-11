@@ -59,7 +59,7 @@ class User implements PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getBirthDate(): \DateTimeInterface
+    public function getBirthDate(): ?\DateTimeInterface
     {
         return $this->birthDate;
     }
