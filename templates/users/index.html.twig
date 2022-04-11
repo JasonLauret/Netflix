@@ -12,6 +12,7 @@
                     <th>Prénom</th>
                     <th>Date de naissance</th>
                     <th>Email</th>
+                    <th>Role</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,7 @@
                 <td>{{ user.firstName }}</td>
                 <td>{{ user.birthDate ? user.birthDate|date('d/m/Y') : '' }}</td>
                 <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 {# <td>{{ order.date ? order.date|date('d/m/Y') : '' }}</td> 
                 <td>
                     <a class="lien" href="{{ path('order_show', {'id': order.id}) }}">Detail</a>
