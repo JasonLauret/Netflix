@@ -28,18 +28,27 @@
                         </div>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto">
-                    {% for locale in locales  %}
-                        {% if locale != app.request.locale %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('change_locale', {'locale':locale}) }}"><img class="img-fluid" src="{{ asset('img/'~locale~'.png') }}" alt="{{locale}}"></a>
-                            </li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle me-4" id="dropdownMenuLink" data-bs-toggle="dropdown" >
+                        {% for locale in locales  %}
+                            {% if locale == app.request.locale %}
+                                <img class="img-fluid" src="{{ asset('img/'~locale~'.png') }}" alt="{{locale}}">
+                            {% endif %}
+                        {% endfor %}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        {% for locale in locales  %}
+                            {% if locale != app.request.locale %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('change_locale', {'locale':locale}) }}"><img class="img-fluid" src="{{ asset('img/'~locale~'.png') }}" alt="{{locale}}"></a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
                 <p class="text-white me-5 fs-5">{% trans %}Hello{% endtrans %} <b>{{ app.user.firstName }}</b>. {% trans %}You are{% endtrans %} ADMIN</p>
                 <form class="d-flex">
-                    <input class="form-control me-sm-2" type="text" placeholder="Search">
+                    <input class="form-control me-sm-2" type="text" placeholder="{% trans %}Search{% endtrans %}">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">{% trans %}Search{% endtrans %}</button>
                 </form>
                 <div class="right-menu">
@@ -48,6 +57,8 @@
                         <a class="btn btn-danger ms-3" href="{{ path('app_logout') }}"><i class="bi bi-door-open me-1"></i>{% trans %}Logout{% endtrans %}</a>
                     {# </div> #}
                 </div>
+                {# _________________________________________________________
+                _____________________________________________________________ #}
             {% elseif app.user %}
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
@@ -67,14 +78,27 @@
                         </div>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><img src="{{ asset('img/en.png') }}" alt="en"></a>
-                    </li>
-                </ul>
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle me-4" id="dropdownMenuLink" data-bs-toggle="dropdown" >
+                        {% for locale in locales  %}
+                            {% if locale == app.request.locale %}
+                                <img class="img-fluid" src="{{ asset('img/'~locale~'.png') }}" alt="{{locale}}">
+                            {% endif %}
+                        {% endfor %}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        {% for locale in locales  %}
+                            {% if locale != app.request.locale %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('change_locale', {'locale':locale}) }}"><img class="img-fluid" src="{{ asset('img/'~locale~'.png') }}" alt="{{locale}}"></a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
                 <p class="text-white me-5 fs-5">{% trans %}Hello{% endtrans %} <b>{{ app.user.firstName }}</b></p>
                 <form class="d-flex">
-                    <input class="form-control me-sm-2" type="text" placeholder="Search">
+                    <input class="form-control me-sm-2" type="text" placeholder="{% trans %}Search{% endtrans %}">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">{% trans %}Search{% endtrans %}</button>
                 </form>
                 <div class="right-menu">
@@ -102,6 +126,24 @@
                         </div>
                     </li>
                 </ul>
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle me-4" id="dropdownMenuLink" data-bs-toggle="dropdown" >
+                        {% for locale in locales  %}
+                            {% if locale == app.request.locale %}
+                                <img class="img-fluid" src="{{ asset('img/'~locale~'.png') }}" alt="{{locale}}">
+                            {% endif %}
+                        {% endfor %}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        {% for locale in locales  %}
+                            {% if locale != app.request.locale %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('change_locale', {'locale':locale}) }}"><img class="img-fluid" src="{{ asset('img/'~locale~'.png') }}" alt="{{locale}}"></a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
                 <form class="d-flex">
                     <input class="form-control me-sm-2" type="text" placeholder="Search">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
@@ -112,46 +154,3 @@
         </div>
     </div>
 </nav>
-
-
-{# <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand titreNetflix" href="{{ path('home') }}">Netflix</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('film') }}">Film</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('users') }}">Utilisateurs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
-                </li>
-            </ul>
-            {% if app.user %}
-                <p class="text-white me-5 fs-5">Bonjour <b>{{ app.user.firstName }}</b></p>
-            {% endif %}
-            <form class="d-flex">
-                <input class="form-control me-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            <a class="btn btn-primary ms-3" href="{{ path('app_login') }}">Se connecter</a>
-            <a class="btn btn-danger ms-3" href="{{ path('registration') }}">S'inscrire</a>
-        </div>
-    </div>
-</nav> #}
