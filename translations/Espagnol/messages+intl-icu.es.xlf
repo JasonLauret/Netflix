@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="es" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="D700MGw" resname="Welcome to my site">
+        <source>Welcome to my site</source>
+        <target>Bienvenida a mi sitio</target>
+      </trans-unit>
+      <trans-unit id="lB3kRHs" resname="Movie">
+        <source>Movie</source>
+        <target>Película</target>
+      </trans-unit>
+      <trans-unit id="awzJBNC" resname="Users">
+        <source>Users</source>
+        <target>Usuarios</target>
+      </trans-unit>
+      <trans-unit id="GF_NsyJ" resname="Hello">
+        <source>Hello</source>
+        <target>Hola</target>
+      </trans-unit>
+      <trans-unit id="Pp9w7A0" resname="You are">
+        <source>You are</source>
+        <target>Usted está</target>
+      </trans-unit>
+      <trans-unit id="DiImtSN" resname="Welcome">
+        <source>Welcome</source>
+        <target>Bienvenido</target>
+      </trans-unit>
+      <trans-unit id="PBmERIx" resname="This is a message that will be translated">
+        <source>This is a message that will be translated</source>
+        <target>Este es un mensaje que será traducido.</target>
+      </trans-unit>
+      <trans-unit id="ScJmuqq" resname="Search">
+        <source>Search</source>
+        <target>Búsqueda</target>
+      </trans-unit>
+      <trans-unit id="0FJ_Sz1" resname="Logout">
+        <source>Logout</source>
+        <target>Cerrar sesión</target>
+      </trans-unit>
+      <trans-unit id="nWMiwfT" resname="Login">
+        <source>Login</source>
+        <target>Acceso</target>
+      </trans-unit>
+      <trans-unit id="u3I07BJ" resname="Register">
+        <source>Register</source>
+        <target>Registro</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
