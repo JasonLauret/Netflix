@@ -20,10 +20,10 @@ class FilmType extends AbstractType
                 'label' => 'Image (.png, .jpeg, .webp',
                 'mapped' => false,
                 'required' => false,
-                'contraints' => [
+                'constraints' => [
                     new File([
                         'maxSize' => '1024k',
-                        'minTypes' => [
+                        'mimeTypes' => [
                             'image/png',
                             'image/jpeg',
                             'image/webp'
