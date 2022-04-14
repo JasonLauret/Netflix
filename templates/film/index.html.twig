@@ -9,22 +9,18 @@
     {% if is_granted('ROLE_ADMIN') %}
         <a class="btn btn-danger" href="{{ path('createFilm') }}">Ajouter un film</a>
     {% endif %}
-    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 d-flex justify-content-center">
         {% for film in films %}
             <div class="col d-flex justify-content-center g-5">
                 <a class="card-film" href="{{ path('show', {'id': film.id}) }}">
                     <div class="realisation-section">
                         <div class="realisation-survol">
                             <div class="realisation-survol-content">
-                                <div class="contenant">
-                                    <h5 class="text-center"><b>{{ film.titre }}</b></h5>
-                                </div>
+                                <h5 class="text-center"><b>{{ film.titre }}</b></h5>
                             </div>
                         </div>
                         <img class="img_card img-fluid" width="300" height="500" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt="Affiche du film '{{ film.titre }}'" />
                     </div>
-                    {# <img class="bg-secondary" width="200" height="250" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt=""> #}
-                    
                 </a>
             </div>
         {% else %}
@@ -34,20 +30,4 @@
         {% endfor %}
     </div>
 </section>
-
-    {# Card bootstrap #}
-    {# {% for film in films %}
-        <div class="col d-flex justify-content-center g-5">
-            <div class="card" style="width: 18rem;">
-                <img src="{{ film.image }}" class="card-img-top" alt="Image du film {{ film.titre }}">
-                <div class="card-body">
-                    <h5 class="card-title"><b>Titre: </b>{{ film.titre }}</h5>
-                    <p class="card-text"><b>Description: </b>{{ film.description }}</p>
-                    <div class="text-center">
-                        <a class="btn btn-primary" href="{{ path('show', {'id': film.id}) }}">Voir plus</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endfor %} #}
 {% endblock %}
