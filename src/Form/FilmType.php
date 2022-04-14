@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\Film;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class FilmType extends AbstractType
 {
@@ -14,7 +16,22 @@ class FilmType extends AbstractType
         $builder
             ->add('titre')
             ->add('description')
-            ->add('image')
+            ->add('image', FileType::class, [
+                'label' => 'Image (.png, .jpeg, .webp',
+                'mapped' => false,
+                'required' => false,
+                'contraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'minTypes' => [
+                            'image/png',
+                            'image/jpeg',
+                            'image/webp'
+                        ],
+                        'mimeTypesMessage' => 'Merci de charger une image valide'
+                    ])
+                ]
+            ])
             ->add('duree')
         ;
     }
