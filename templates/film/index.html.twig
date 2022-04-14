@@ -13,7 +13,7 @@
         {% for film in films %}
             <div class="col d-flex justify-content-center g-5">
                 <a class="card-film" href="{{ path('show', {'id': film.id}) }}">
-                    <img class="w-100" src="{{ film.image }}" alt="">
+                    <img class="bg-secondary" width="200" height="250" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt="">
                     <div class="contenant">
                         <h5><b>Titre: </b>{{ film.titre }}</h5>
                     </div>

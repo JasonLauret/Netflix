@@ -3,7 +3,7 @@
 {% block body %}
     <section class="pageShowFilm">
         <div class="text-center d-block d-md-flex">
-            <h2>Affiche du film {{ showFilm.titre }}</h2>
+            <h2>Affiche du film "{{ showFilm.titre }}"</h2>
             {% if is_granted('ROLE_ADMIN') %}
                 <div>
                     <a class="btn btn-secondary ms-3" href="{{ path('editFilm', {'id': film.id}) }}">Modifier le film</a>
@@ -35,7 +35,7 @@
         {% endif %}
         <div class="d-flex justify-content-center mt-5">
             <div class="card bg-dark text-white w-50 ">
-                <img src="{{ showFilm.image }}" class="card-img-top" alt="Image du film {{ showFilm.titre }}">
+                <img class="card-img-top" width="700" height="350" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt="Image du film {{ showFilm.titre }}">
                 <div class="card-img-overlay">
                     <h3 class="card-title"><b>Titre: </b>{{ showFilm.titre }}</h3>
                     <p class="card-text"><b>Description: </b>{{ showFilm.description }}</p>

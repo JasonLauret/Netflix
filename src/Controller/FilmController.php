@@ -7,9 +7,11 @@ use App\Form\FilmType;
 use App\Repository\FilmRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class FilmController extends AbstractController
 {
@@ -25,7 +27,7 @@ class FilmController extends AbstractController
 
     #[Route('a/film/new', name: 'createFilm')]
     #[Route('a/film/{id}/edit', name: 'editFilm')]
-    public function form(Request $request, EntityManagerInterface $manager, Film $film = null)
+    public function form(Request $request, EntityManagerInterface $manager, Film $film = null, SluggerInterface $slugger)
     {
         if(!$film){
             $film = new Film();
@@ -34,6 +36,22 @@ class FilmController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+            $pictureFile = $form->get('image')->getData();
+            if ($pictureFile) {
+                $originalFilename = pathinfo($pictureFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$pictureFile->guessExtension();
+                try {
+                    $pictureFile->move(
+                        $this->getParameter('upload_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    var_dump($e);
+                    die('Erreur');
+                }
+                $film->setImage($newFilename);
+            }
             $manager->persist($film);
             $manager->flush();
             return $this->redirectToRoute('film', [
