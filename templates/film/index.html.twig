@@ -6,7 +6,9 @@
 
 <section class="pageListFilm">
     <h2>Liste des films</h2>
-    <a class="btn btn-danger" href="{{ path('createFilm') }}">Ajouter un film</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="btn btn-danger" href="{{ path('createFilm') }}">Ajouter un film</a>
+    {% endif %}
     <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
         {% for film in films %}
             <div class="col d-flex justify-content-center g-5">

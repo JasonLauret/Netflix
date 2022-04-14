@@ -4,33 +4,35 @@
     <section class="pageShowFilm">
         <div class="text-center d-block d-md-flex">
             <h2>Affiche du film {{ showFilm.titre }}</h2>
-            <div>
-                <a class="btn btn-secondary ms-3" href="{{ path('editFilm', {'id': film.id}) }}">Modifier le film</a>
-                <button type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" href="#modalDeleteFilm">
-                    Suprimer le film
-                </button>
-                <div class="modal" id="modalDeleteFilm" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="text-center">
-                                <h3 class="fw-bold pt-3">Attention !</h3>
-                                <hr>
-                            </div>
-                            <div class="modal-body">
-                                <h4 class="fw-bold text-center">Vous vous apprêtez à supprimer ce film "{{ showFilm.titre }}".</h4>
-                                <p class="text-center">En êtes-vous sûr ?</p>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="d-flex justify-content-between">
-                                    <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</a>
-                                    <a class="btn btn-danger" href="{{ path('removeFilm', {'id': film.id}) }}">Oui</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <div>
+                    <a class="btn btn-secondary ms-3" href="{{ path('editFilm', {'id': film.id}) }}">Modifier le film</a>
+                    <button type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" href="#modalDeleteFilm">
+                        Suprimer le film
+                    </button>
+                    <div class="modal" id="modalDeleteFilm" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="text-center">
+                                    <h3 class="fw-bold pt-3">Attention !</h3>
+                                    <hr>
+                                </div>
+                                <div class="modal-body">
+                                    <h4 class="fw-bold text-center">Vous vous apprêtez à supprimer ce film "{{ showFilm.titre }}".</h4>
+                                    <p class="text-center">En êtes-vous sûr ?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="d-flex justify-content-between">
+                                        <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</a>
+                                        <a class="btn btn-danger" href="{{ path('removeFilm', {'id': film.id}) }}">Oui</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
         <div class="d-flex justify-content-center mt-5">
             <div class="card bg-dark text-white w-50 ">
                 <img src="{{ showFilm.image }}" class="card-img-top" alt="Image du film {{ showFilm.titre }}">

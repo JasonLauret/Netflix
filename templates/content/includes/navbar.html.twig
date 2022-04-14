@@ -4,7 +4,6 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarColor02">
             {% if is_granted('ROLE_ADMIN') %}
                 <ul class="navbar-nav me-auto">
@@ -107,6 +106,8 @@
                         <a class="btn btn-danger ms-3" href="{{ path('app_logout') }}"><i class="bi bi-door-open me-1"></i>{% trans %}Logout{% endtrans %}</a>
                     {# </div> #}
                 </div>
+                {# _________________________________________________________
+                _____________________________________________________________ #}
             {% else %}
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">

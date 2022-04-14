@@ -23,8 +23,8 @@ class FilmController extends AbstractController
         ]);
     }
 
-    #[Route('/film/new', name: 'createFilm')]
-    #[Route('film/{id}/edit', name: 'editFilm')]
+    #[Route('a/film/new', name: 'createFilm')]
+    #[Route('a/film/{id}/edit', name: 'editFilm')]
     public function form(Request $request, EntityManagerInterface $manager, Film $film = null)
     {
         if(!$film){
@@ -56,7 +56,7 @@ class FilmController extends AbstractController
             'film' => $film
         ]);
     }
-    #[Route('/film/remove/{id}', name:'removeFilm')]
+    #[Route('a/film/remove/{id}', name:'removeFilm')]
     public function remove(Film $film, EntityManagerInterface $em){
         
         $em->remove($film);
