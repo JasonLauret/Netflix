@@ -27,12 +27,35 @@ nav a {
 a.card-film {
     color: white;
 }
-
-a.card-film img {
-    filter: blur(1px);
-}
 .contenant {
     position: relative;
     bottom: 80%;
     left: 5%;
+}
+/* img survol */
+.pageListFilm a {
+    text-decoration: none;
+}
+
+.realisation-section {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+}
+.realisation-section .realisation-survol {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity ease-in-out 0.25s;
+}
+.realisation-section:hover .realisation-survol {
+    opacity: 0;
+}
+.realisation-section .realisation-survol .realisation-survol-content {
+    color: white;
 }

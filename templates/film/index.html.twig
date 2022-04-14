@@ -13,10 +13,18 @@
         {% for film in films %}
             <div class="col d-flex justify-content-center g-5">
                 <a class="card-film" href="{{ path('show', {'id': film.id}) }}">
-                    <img class="bg-secondary" width="200" height="250" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt="">
-                    <div class="contenant">
-                        <h5><b>Titre: </b>{{ film.titre }}</h5>
+                    <div class="realisation-section">
+                        <div class="realisation-survol">
+                            <div class="realisation-survol-content">
+                                <div class="contenant">
+                                    <h5 class="text-center"><b>{{ film.titre }}</b></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="img_card img-fluid" width="300" height="500" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt="Affiche du film '{{ film.titre }}'" />
                     </div>
+                    {# <img class="bg-secondary" width="200" height="250" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt=""> #}
+                    
                 </a>
             </div>
         {% else %}
