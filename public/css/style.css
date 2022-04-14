@@ -56,9 +56,38 @@ a.card-film {
     color: white;
 }
 
-.card-film img {
+.pageListFilm .card-film img {
     min-width: 300px;
     max-width: 300px;
     min-height: 425px;
     max-height: 425px;
+}
+
+/* Page détail film */
+
+.carte {
+    margin-top: 50px;
+}
+
+.cardText, .cardMovie {
+    height: 50%;
+    width: 100%;
+}
+
+div.cardMovie>video {
+    padding-bottom: 100px;
+    width: 80%;
+}
+
+@media screen and (max-width: 991px){
+    div.cardMovie>video {
+        padding-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 640px){
+    div.cardMovie>video {
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
 }

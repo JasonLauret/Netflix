@@ -3,7 +3,7 @@
 {% block body %}
     <section class="pageShowFilm">
         <div class="text-center d-block d-md-flex">
-            <h2>Affiche du film "{{ showFilm.titre }}"</h2>
+            <h2><b>{{ showFilm.titre }}</b> </h2>
             {% if is_granted('ROLE_ADMIN') %}
                 <div>
                     <a class="btn btn-secondary ms-3" href="{{ path('editFilm', {'id': film.id}) }}">Modifier le film</a>
@@ -33,15 +33,40 @@
                 </div>
             </div>
         {% endif %}
-        <div class="d-flex justify-content-center mt-5">
-            <div class="card bg-dark text-white w-50 ">
-                <img class="card-img-top" width="700" height="350" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt="Image du film {{ showFilm.titre }}">
-                <div class="card-img-overlay">
-                    <h3 class="card-title"><b>Titre: </b>{{ showFilm.titre }}</h3>
-                    <p class="card-text"><b>Description: </b>{{ showFilm.description }}</p>
+        <div class="carte border row">
+            <div class="partiImage col-md-12 col-lg-5 p-0">
+                <img class="img-fluid" style="width:100%;" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt="Video de {{ showFilm.titre }}">
+            </div>
+            <div class="partiDescription col-md-12 col-lg-7">
+                <div class="cardText">
+                    <h5 class="card-title pt-3"><b>{{ showFilm.titre }}</b></h5>
+                    <p class="card-text pt-3">{{ showFilm.description }}</p>
                     <p class="card-text"><small class="text-muted">Durée: {{ showFilm.duree }}</small></p>
+                </div>
+                <div class="cardMovie d-flex justify-content-center align-items-center">
+                    <video class="img-fluid" controls src="{{ asset('movie/seoul.mp4') }}"></video>
                 </div>
             </div>
         </div>
+
+        {# <div class="card mb-3" style="min-width: 800px;">
+            <div class="row g-0">
+                <div class="col-md-5">
+                    <img class="img-fluid" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt="Video de {{ showFilm.titre }}">
+                </div>
+                <div class="cardParagraphe col-md-7">
+                    <div class="card-body">
+                        <div class="cardText">
+                            <h5 class="card-title"><b>{{ showFilm.titre }}</b></h5>
+                            <p class="card-text"><b>{{ showFilm.description }}</b></p>
+                            <p class="card-text"><small class="text-muted">Durée: {{ showFilm.duree }}</small></p>
+                        </div>
+                        <div class="cardMovie d-flex justify-content-center align-items-center">
+                            <video class="img-fluid" controls src="{{ asset('movie/seoul.mp4') }}"></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> #}
     </section>
 {% endblock %}
