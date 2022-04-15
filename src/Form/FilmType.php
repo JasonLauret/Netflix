@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Film;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
@@ -33,6 +34,9 @@ class FilmType extends AbstractType
                 ]
             ])
             ->add('duree')
+            ->add('movie', TextType::class, [
+                'label' => 'Chemin vers la video'
+            ])
         ;
     }
 
