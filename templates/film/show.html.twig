@@ -35,7 +35,7 @@
         {% endif %}
         <div class="carte border row">
             <div class="partiImage col-md-12 col-lg-5 p-0">
-                <img class="img-fluid" style="width:100%;" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt="Video de {{ showFilm.titre }}">
+                <img class="img-fluid" style="width:100%;" src="{{ asset('upload/img/' ~ film.image) }}" alt="Video de {{ showFilm.titre }}">
             </div>
             <div class="partiDescription col-md-12 col-lg-7">
                 <div class="cardText">
@@ -45,7 +45,6 @@
                 </div>
                 <div class="cardMovie d-flex justify-content-center align-items-center">
                     {# <video class="img-fluid" controls src="{{ asset('movie/seoul.mp4') }}"></video> #}
-                    <p class="card-text pt-3">{{ showFilm.movie }}</p>
                 </div>
             </div>
         </div>
