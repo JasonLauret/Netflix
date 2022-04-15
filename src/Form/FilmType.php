@@ -34,9 +34,6 @@ class FilmType extends AbstractType
                 ]
             ])
             ->add('duree')
-            ->add('movie', TextType::class, [
-                'label' => 'Chemin vers la video'
-            ])
         ;
     }
 
