@@ -36,6 +36,7 @@ class FilmController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+            // picture
             $pictureFile = $form->get('image')->getData();
             if ($pictureFile) {
                 $originalFilename = pathinfo($pictureFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -52,8 +53,28 @@ class FilmController extends AbstractController
                 }
                 $film->setImage($newFilename);
             }
+            // movie
+            $movieFile = $form->get('movie')->getData();
+            if ($movieFile) {
+                $originalFilename = pathinfo($movieFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$movieFile->guessExtension();
+                try {
+                    $movieFile->move(
+                        $this->getParameter('upload_movie_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    var_dump($e);
+                    die('Erreur');
+                }
+                $film->setMovie($newFilename);
+            }
+
             $manager->persist($film);
             $manager->flush();
+            
+            // var_dump($form->getData());
             return $this->redirectToRoute('film', [
                 'id' => $film->getId()
             ]);

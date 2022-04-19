@@ -67,6 +67,11 @@ a.card-film {
 
 .carte {
     margin-top: 50px;
+    border-radius: 5px;
+}
+
+.partiImage img {
+    border-radius: 5px;
 }
 
 .cardText, .cardMovie {
@@ -74,9 +79,10 @@ a.card-film {
     width: 100%;
 }
 
-div.cardMovie>video {
+div.cardMovie video {
     padding-bottom: 100px;
     width: 80%;
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 991px){

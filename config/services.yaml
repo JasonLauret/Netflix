@@ -6,6 +6,7 @@
 parameters:
     app.locales: [en, fr, es]
     upload_directory: '%kernel.project_dir%/public/upload/imgMovie'
+    upload_movie_directory: '%kernel.project_dir%/public/upload/movie'
 
 services:
     # default configuration for services in *this* file

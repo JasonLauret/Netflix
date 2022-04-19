@@ -19,11 +19,14 @@ class Film
     #[ORM\Column(type: 'text')]
     private $description;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $image;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $duree;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $movie;
 
     public function getId(): ?int
     {
@@ -74,6 +77,18 @@ class Film
     public function setDuree(?string $duree): self
     {
         $this->duree = $duree;
+
+        return $this;
+    }
+
+    public function getMovie(): ?string
+    {
+        return $this->movie;
+    }
+
+    public function setMovie(?string $movie): self
+    {
+        $this->movie = $movie;
 
         return $this;
     }

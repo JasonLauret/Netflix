@@ -33,6 +33,17 @@ class FilmType extends AbstractType
                     ])
                 ]
             ])
+            ->add('movie', FileType::class, [
+                'label' => 'Video (.mp4, .mov,...)',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '20M',
+                        'mimeTypesMessage' => 'Merci de charger une video valide'
+                    ])
+                ]
+            ])
             ->add('duree')
         ;
     }
