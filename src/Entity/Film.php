@@ -28,6 +28,9 @@ class Film
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $movie;
 
+    #[ORM\ManyToOne(targetEntity: Genre::class, inversedBy: 'name')]
+    private $genre;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +92,18 @@ class Film
     public function setMovie(?string $movie): self
     {
         $this->movie = $movie;
+
+        return $this;
+    }
+
+    public function getGenre(): ?Genre
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(?Genre $genre): self
+    {
+        $this->genre = $genre;
 
         return $this;
     }
