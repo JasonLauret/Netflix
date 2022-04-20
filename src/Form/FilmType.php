@@ -3,9 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Film;
+use App\Entity\Genre;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
@@ -45,6 +46,15 @@ class FilmType extends AbstractType
                 ]
             ])
             ->add('duree')
+            ->add('genre', EntityType::class, 
+                array(
+                    'label' => 'Genre:',
+                    'class' => Genre::class,
+                    'choice_label' => 'name',
+                    'expanded' => true,
+                    'multiple' => true
+                )
+            )
         ;
     }
 

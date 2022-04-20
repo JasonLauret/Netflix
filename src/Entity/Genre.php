@@ -15,12 +15,15 @@ class Genre
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\OneToMany(mappedBy: 'genre', targetEntity: film::class)]
+    #[ORM\Column(type: 'string', length: 255)]
     private $name;
+
+    #[ORM\ManyToMany(targetEntity: Film::class, mappedBy: 'genre')]
+    private $films;
 
     public function __construct()
     {
-        $this->name = new ArrayCollection();
+        $this->films = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -28,33 +31,48 @@ class Genre
         return $this->id;
     }
 
-    /**
-     * @return Collection<int, film>
-     */
-    public function getName(): Collection
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function addName(film $name): self
+    public function setName(string $name): self
     {
-        if (!$this->name->contains($name)) {
-            $this->name[] = $name;
-            $name->setGenre($this);
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Film>
+     */
+    public function getFilms(): Collection
+    {
+        return $this->films;
+    }
+
+    public function addFilm(Film $film): self
+    {
+        if (!$this->films->contains($film)) {
+            $this->films[] = $film;
+            $film->addGenre($this);
         }
 
         return $this;
     }
 
-    public function removeName(film $name): self
+    public function removeFilm(Film $film): self
     {
-        if ($this->name->removeElement($name)) {
-            // set the owning side to null (unless already changed)
-            if ($name->getGenre() === $this) {
-                $name->setGenre(null);
-            }
+        if ($this->films->removeElement($film)) {
+            $film->removeGenre($this);
         }
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
 }
