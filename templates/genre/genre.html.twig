@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genres{% endblock %}
+
+{% block body %}
+    <section class="pageListGenre">
+        <h2>Liste des genres</h2>
+        <a class="btn btn-danger mb-3" href="{{ path('createGenre') }}">Ajouter un genre</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+            {% for genre in genres %}
+            <tr>
+                <td>{{ genre.name }}</td>
+                <td>
+                    <a class="btn btn-danger" href="{{ path('editGenre', {'id': genre.id}) }}">Modifier</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3">Ancun genre trouvé</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

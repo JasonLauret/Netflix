@@ -13,12 +13,12 @@ nav a {
 
 /* Pages */
 
-.pageListFilm, .pageShowFilm, .pageListUsers, .formRegistration{
+.pageListFilm, .pageShowFilm, .pageListUsers, .formRegistration, .pageListGenre{
     margin-top: 100px;
     margin-bottom: 100px;
 }
 
-.pageListFilm h2, .pageShowFilm h2, .pageListUsers h2, .formRegistration h2 {
+.pageListFilm h2, .pageShowFilm h2, .pageListUsers h2, .formRegistration h2, .pageListGenre h2 {
     font-size: 50px;
     margin-bottom: 50px;
 }
