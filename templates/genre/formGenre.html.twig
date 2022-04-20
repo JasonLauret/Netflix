@@ -2,22 +2,33 @@
 
 {% form_theme formGenre 'bootstrap_5_layout.html.twig' %}
 
-{% block title %}Hello GenreController!{% endblock %}
+{% block title %}
+    {% if editMode %}
+        {% trans %}Change of film genre{% endtrans %}
+    {% else %}
+        {% trans %}Add a film genre{% endtrans %} {# Ajouter un genre #}
+    {% endif %}
+{% endblock %}
 
 {% block body %}
     <section class="formGenre">
+
+        {% if editMode %}
+            <h2>{% trans %}Change of film genre{% endtrans %}</h2>
+        {% else %}
+            <h2>{% trans %}Adding a film genre{% endtrans %}</h2> {# Ajout d'un genre #}
+        {% endif %}
+
         {{ form_start(formGenre) }}
-
             {{ form_row(formGenre.name) }}
-
             <button type="submit" class="btn btn-secondary">
                 {% if editMode %}
-                    Enregistrer les modifications
+                    {% trans %}Save Changes{% endtrans %}
                 {% else %}
-                    Ajouter un genre
+                    {% trans %}Add a film genre{% endtrans %}
                 {% endif %}
             </button>
-
         {{ form_end(formGenre) }}
+        
     </section>
 {% endblock %}

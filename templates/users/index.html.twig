@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Utilisateurs{% endblock %}
+{% block title %}{% trans %}Users{% endblock %}
 
 {% block body %}
     <section class="pageListUsers">
-        <h2>Liste des utilisateurs</h2>
+        <h2>{% trans %}Users list{% endtrans %}</h2>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Date de naissance</th>
-                    <th>Email</th>
-                    <th>Role</th>
+                    <th>{% trans %}Lastname{% endtrans %}</th>
+                    <th>{% trans %}Firstname{% endtrans %}</th>
+                    <th>{% trans %}Birthdate{% endtrans %}</th>
+                    <th>{% trans %}Email{% endtrans %}</th>
+                    <th>{% trans %}Role{% endtrans %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,7 +32,7 @@
             </tr>
             {% else %}
             <tr>
-                <td colspan="3">Ancune utilisateur trouvé</td>
+                <td colspan="3">{% trans %}No user found{% endtrans %}</td>
             </tr>
             {% endfor %}
             </tbody>

@@ -1,30 +1,32 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{% trans %}Movie details{% endtrans %}{% endblock %}
+
 {% block body %}
     <section class="pageShowFilm">
         <div class="text-center d-block d-md-flex">
             <h2><b>{{ showFilm.titre }}</b> </h2>
             {% if is_granted('ROLE_ADMIN') %}
                 <div>
-                    <a class="btn btn-secondary ms-3" href="{{ path('editFilm', {'id': film.id}) }}">Modifier le film</a>
+                    <a class="btn btn-secondary ms-3" href="{{ path('editFilm', {'id': film.id}) }}">{% trans %}Edit Movie{% endtrans %}</a>
                     <button type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" href="#modalDeleteFilm">
-                        Suprimer le film
+                        {% trans %}Delete Movie{% endtrans %}
                     </button>
                     <div class="modal" id="modalDeleteFilm" tabindex="-1">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="text-center">
-                                    <h3 class="fw-bold pt-3">Attention !</h3>
+                                    <h3 class="fw-bold pt-3">{% trans %}Attention{% endtrans %} !</h3>
                                     <hr>
                                 </div>
                                 <div class="modal-body">
-                                    <h4 class="fw-bold text-center">Vous vous apprêtez à supprimer ce film "{{ showFilm.titre }}".</h4>
-                                    <p class="text-center">En êtes-vous sûr ?</p>
+                                    <h4 class="fw-bold text-center">{% trans %}You are about to delete this movie{% endtrans %} "{{ showFilm.titre }}".</h4>
+                                    <p class="text-center">{% trans %}Are you sure{% endtrans %}?</p>
                                 </div>
                                 <div class="modal-footer">
                                     <div class="d-flex justify-content-between">
-                                        <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</a>
-                                        <a class="btn btn-danger" href="{{ path('removeFilm', {'id': film.id}) }}">Oui</a>
+                                        <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans %}No{% endtrans %}</a>
+                                        <a class="btn btn-danger" href="{{ path('removeFilm', {'id': film.id}) }}">{% trans %}Yes{% endtrans %}</a>
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +46,7 @@
                     {% for showFilm in showFilm.genre %}
                         {{ showFilm.name }}
                     {% endfor %}
-                    <p class="card-text"><small class="text-muted">Durée: {{ showFilm.duree }}</small></p>
+                    <p class="card-text"><small class="text-muted">{% trans %}Duration{% endtrans %}: {{ showFilm.duree }}</small></p>
                 </div>
                 {% if showFilm.movie %}
                     <div class="cardMovie d-flex justify-content-center align-items-center">
@@ -53,25 +55,5 @@
                 {% endif %}
             </div>
         </div>
-
-        {# <div class="card mb-3" style="min-width: 800px;">
-            <div class="row g-0">
-                <div class="col-md-5">
-                    <img class="img-fluid" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt="Video de {{ showFilm.titre }}">
-                </div>
-                <div class="cardParagraphe col-md-7">
-                    <div class="card-body">
-                        <div class="cardText">
-                            <h5 class="card-title"><b>{{ showFilm.titre }}</b></h5>
-                            <p class="card-text"><b>{{ showFilm.description }}</b></p>
-                            <p class="card-text"><small class="text-muted">Durée: {{ showFilm.duree }}</small></p>
-                        </div>
-                        <div class="cardMovie d-flex justify-content-center align-items-center">
-                            <video class="img-fluid" controls src="{{ asset('movie/seoul.mp4') }}"></video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> #}
     </section>
 {% endblock %}

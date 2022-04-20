@@ -2,11 +2,11 @@
 
 {% form_theme formRegistration 'bootstrap_5_layout.html.twig' %}
 
-{% block title %}Hello RegistrationController!{% endblock %}
+{% block title %}{% trans %}Registration{% endtrans %}{% endblock %}
 
 {% block body %}
     <section class="formRegistration">
-        <h2>Formulaire d'inscription</h2>
+        <h2>{% trans %}Registration Form{% endtrans %}</h2>
         <div>
             {{ form_start(formRegistration) }}
                 {{ form_row(formRegistration.lastName) }}
@@ -15,7 +15,7 @@
                 {{ form_row(formRegistration.email) }}
                 {{ form_row(formRegistration.password) }}
 
-                <button type="submit" class="btn btn-secondary">Enregistrer</button>
+                <button type="submit" class="btn btn-secondary">{% trans %}Save{% endtrans %}</button>
             {{ form_end(formRegistration) }}
         </div>
     </section>

@@ -11,7 +11,7 @@
                 </li>
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('genre') }}">{% trans %}Genre{% endtrans %}</a>
+                        <a class="nav-link" href="{{ path('genre') }}">{% trans %}Film genre{% endtrans %}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('users') }}">{% trans %}Users{% endtrans %}</a>
@@ -49,14 +49,13 @@
                     {% endfor %}
                 </ul>
             </div>
-            
             <p class="text-white me-5 fs-5">
                 {% if is_granted('ROLE_ADMIN') %}
                     {% trans %}Hello{% endtrans %} <b>{{ app.user.firstName }}</b> ! {% trans %}You are{% endtrans %} ADMIN
                 {% elseif app.user %}
-                    {% trans %}Hello !{% endtrans %} <b>{{ app.user.firstName }}</b>
+                    {% trans %}Hello{% endtrans %} <b>{{ app.user.firstName }}</b> !
                 {% else %}
-                    {% trans %}Hello !{% endtrans %} Connectez ou inscrivez-vous</b>
+                    {% trans %}Hello{% endtrans %} ! {% trans %}Login your account{% endtrans %} !</b>
                 {% endif %}
             </p>
             <form class="d-flex">
@@ -73,7 +72,6 @@
                     <a class="btn btn-primary ms-3" href="{{ path('app_login') }}">{% trans %}Login{% endtrans %}</a>
                     <a class="btn btn-danger ms-3" href="{{ path('registration') }}">{% trans %}Register{% endtrans %}</a>
                 {% endif %}
-                
             </div>
         </div>
     </div>
