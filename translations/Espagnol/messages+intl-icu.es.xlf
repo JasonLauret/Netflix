@@ -49,6 +49,135 @@
         <source>Register</source>
         <target>Registro</target>
       </trans-unit>
+      <trans-unit id="j_CzZtB" resname="Film genre">
+        <source>Film genre</source>
+        <target>Género cinematográfico
+        </target>
+      </trans-unit>
+      <trans-unit id="8WW7yoe" resname="Login your account">
+        <source>Login your account</source>
+        <target>Inicie sesión en su cuenta</target>
+      </trans-unit>
+      <trans-unit id="OtGSTc7" resname="Editing the movie">
+        <source>Editing the movie</source>
+        <target>Editando la pelicula</target>
+      </trans-unit>
+      <trans-unit id="cECKVg7" resname="Add a movie">
+        <source>Add a movie</source>
+        <target>Añadir una película</target>
+      </trans-unit>
+      <trans-unit id="NTIrW7W" resname="Save Changes">
+        <source>Save Changes</source>
+        <target>Guardar cambios</target>
+      </trans-unit>
+      <trans-unit id="3.kktp_" resname="Movies">
+        <source>Movies</source>
+        <target>Películas</target>
+      </trans-unit>
+      <trans-unit id="6o5Qa9w" resname="List of movies">
+        <source>List of movies</source>
+        <target>Lista de peliculas</target>
+      </trans-unit>
+      <trans-unit id="sAhVek." resname="No movies found">
+        <source>No movies found</source>
+        <target>No se encontraron películas</target>
+      </trans-unit>
+      <trans-unit id="JK54VbU" resname="Movie details">
+        <source>Movie details</source>
+        <target>Detalles de la película</target>
+      </trans-unit>
+      <trans-unit id="OPdVW2X" resname="Edit Movie">
+        <source>Edit Movie</source>
+        <target>Editar pelicula</target>
+      </trans-unit>
+      <trans-unit id="eFmKYQy" resname="Delete Movie">
+        <source>Delete Movie</source>
+        <target>Eliminar película</target>
+      </trans-unit>
+      <trans-unit id="wuuM2dl" resname="Attention">
+        <source>Attention</source>
+        <target>Atención</target>
+      </trans-unit>
+      <trans-unit id="LVL0cNl" resname="You are about to delete this movie">
+        <source>You are about to delete this movie</source>
+        <target>Estás a punto de eliminar esta película.</target>
+      </trans-unit>
+      <trans-unit id="EsiFsj9" resname="Are you sure">
+        <source>Are you sure</source>
+        <target>Estas seguro</target>
+      </trans-unit>
+      <trans-unit id="HqRCoTS" resname="No">
+        <source>No</source>
+        <target>No</target>
+      </trans-unit>
+      <trans-unit id="haOas0X" resname="Yes">
+        <source>Yes</source>
+        <target>Sí</target>
+      </trans-unit>
+      <trans-unit id="T8UqPEx" resname="Duration">
+        <source>Duration</source>
+        <target>Duración</target>
+      </trans-unit>
+      <trans-unit id="Q4UfuDB" resname="Change of film genre">
+        <source>Change of film genre</source>
+        <target>Cambio de género cinematográfico</target>
+      </trans-unit>
+      <trans-unit id="ct8yle_" resname="Add a film genre">
+        <source>Add a film genre</source>
+        <target>Añadir un género de película</target>
+      </trans-unit>
+      <trans-unit id="yEv_n9A" resname="Adding a film genre">
+        <source>Adding a film genre</source>
+        <target>Añadir un género cinematográfico</target>
+      </trans-unit>
+      <trans-unit id="SUXPzoN" resname="List of film genre">
+        <source>List of film genre</source>
+        <target>Lista de géneros cinematográficos</target>
+      </trans-unit>
+      <trans-unit id="3NHVIj9" resname="Name">
+        <source>Name</source>
+        <target>Nombre</target>
+      </trans-unit>
+      <trans-unit id="jewXXii" resname="To modify">
+        <source>To modify</source>
+        <target>Modificar</target>
+      </trans-unit>
+      <trans-unit id="aqdVrSo" resname="No film genre found">
+        <source>No film genre found</source>
+        <target>No se encontró ningún género de película.</target>
+      </trans-unit>
+      <trans-unit id="x5Pg2aH" resname="Registration">
+        <source>Registration</source>
+        <target>Registro</target>
+      </trans-unit>
+      <trans-unit id="emYoaaa" resname="Registration Form">
+        <source>Registration Form</source>
+        <target>Formulario de inscripción</target>
+      </trans-unit>
+      <trans-unit id="FQn1YfJ" resname="Save">
+        <source>Save</source>
+        <target>Guardar</target>
+      </trans-unit>
+      <trans-unit id="wYmEDPf" resname="Log in">
+        <source>Log in</source>
+        <target>Iniciar sesión</target>
+      </trans-unit>
+      <trans-unit id="acVpEs4" resname="You are logged in as">
+        <source>You are logged in as</source>
+        <target>Has iniciado sesión como</target>
+      </trans-unit>
+      <trans-unit id="dDUw20Q" resname="Please sign in">
+        <source>Please sign in</source>
+        <target>Por favor, registrese</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Clave</target>
+      </trans-unit>
+      <trans-unit id="v9QCsvb" resname="Sign in">
+        <source>Sign in</source>
+        <target>Registrarse</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
