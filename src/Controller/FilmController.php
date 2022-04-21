@@ -18,10 +18,12 @@ class FilmController extends AbstractController
     #[Route('/film', name: 'film')]
     public function index(FilmRepository $filmRepository): Response
     {
+        $filtreTitreCroissant = $filmRepository->sortAscendingAlphabeticalOrder();
         $film = $filmRepository->findAll();
         return $this->render('film/index.html.twig', [
             'controller_name' => 'FilmController',
-            'films' => $film
+            'films' => $film,
+            'filtreTitreCroissants' => $filtreTitreCroissant
         ]);
     }
 

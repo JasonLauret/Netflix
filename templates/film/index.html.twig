@@ -28,6 +28,20 @@
                 <h3 class="border border-2 border-danger mt-4 p-4">{% trans %}No movies found{% endtrans %}</h3> {# Aucun film trouvé #}
             </td>
         {% endfor %}
+        {# {% for filtreTitreCroissant in filtreTitreCroissants %}
+            <div class="col d-flex justify-content-center g-5">
+                <a class="card-film" href="{{ path('show', {'id': filtreTitreCroissant.id}) }}">
+                    <div class="realisation-section">
+                        <div class="realisation-survol">
+                            <div class="realisation-survol-content">
+                                <h5 class="text-center"><b>{{ filtreTitreCroissant.titre }}</b></h5>
+                            </div>
+                        </div>
+                        <img class="img_card img-fluid" width="300" height="500" src="{{ asset('upload/imgMovie/' ~ filtreTitreCroissant.image) }}" alt="Affiche du film '{{ filtreTitreCroissant.titre }}'" />
+                    </div>
+                </a>
+            </div>
+        {% endfor %} #}
     </div>
 </section>
 {% endblock %}
