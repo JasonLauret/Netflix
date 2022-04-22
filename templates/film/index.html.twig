@@ -3,45 +3,55 @@
 {% block title %}{% trans %}Movies{% endtrans %}{% endblock %}
 
 {% block body %}
-
-<section class="pageListFilm">
-    <h2>{% trans %}List of movies{% endtrans %}</h2> {# Liste des films #}
-    {% if is_granted('ROLE_ADMIN') %}
-        <a class="btn btn-danger" href="{{ path('createFilm') }}">{% trans %}Add a movie{% endtrans %}</a>{# Ajouter un film #}
-    {% endif %}
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 d-flex justify-content-center">
-        {% for film in films %}
-            <div class="col d-flex justify-content-center g-5">
-                <a class="card-film" href="{{ path('show', {'id': film.id}) }}">
-                    <div class="realisation-section">
-                        <div class="realisation-survol">
-                            <div class="realisation-survol-content">
-                                <h5 class="text-center"><b>{{ film.titre }}</b></h5>
-                            </div>
+    <section class="pageListFilm">
+        <h2>{% trans %}List of movies{% endtrans %}</h2>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="btn btn-danger" href="{{ path('createFilm') }}">{% trans %}Add a movie{% endtrans %}</a> {# Ajouter un film #}
+        {% endif %}
+        <div class="titre_filtre"></div>
+        <button class="btn btn-light border" id="btn_filtre_croissant">Ordre alphabétique</button>
+        
+        {% if films is not null %}
+            <div id="normale">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 d-flex justify-content-center" id="normale">
+                    {% for film in films %}
+                        <div class="col d-flex justify-content-center g-5">
+                            <a class="card-film" href="{{ path('show', {'id': film.id}) }}">
+                                <div class="realisation-section">
+                                    <div class="realisation-survol">
+                                        <div class="realisation-survol-content">
+                                            <h5 class="text-center"><b>{{ film.titre }}</b></h5>
+                                        </div>
+                                    </div>
+                                    <img class="img_card img-fluid" width="300" height="500" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt="Affiche du film '{{ film.titre }}'" />
+                                </div>
+                            </a>
                         </div>
-                        <img class="img_card img-fluid" width="300" height="500" src="{{ asset('upload/imgMovie/' ~ film.image) }}" alt="Affiche du film '{{ film.titre }}'" />
-                    </div>
-                </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div id="filtre_croissant">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 d-flex justify-content-center">
+                    {% for titreAlphabetiqueCroissant in titreAlphabetiqueCroissants %}
+                        <div class="col d-flex justify-content-center g-5">
+                            <a class="card-film" href="{{ path('show', {'id': titreAlphabetiqueCroissant.id}) }}">
+                                <div class="realisation-section">
+                                    <div class="realisation-survol">
+                                        <div class="realisation-survol-content">
+                                            <h5 class="text-center"><b>{{ titreAlphabetiqueCroissant.titre }}</b></h5>
+                                        </div>
+                                    </div>
+                                    <img class="img_card img-fluid" width="300" height="500" src="{{ asset('upload/imgMovie/' ~ titreAlphabetiqueCroissant.image) }}" alt="Affiche du film '{{ titreAlphabetiqueCroissant.titre }}'" />
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         {% else %}
             <td colspan="3">
-                <h3 class="border border-2 border-danger mt-4 p-4">{% trans %}No movies found{% endtrans %}</h3> {# Aucun film trouvé #}
+                <h3 class="border border-2 border-danger mt-4 p-4">{% trans %}No movies found{% endtrans %}</h3>
             </td>
-        {% endfor %}
-        {# {% for filtreTitreCroissant in filtreTitreCroissants %}
-            <div class="col d-flex justify-content-center g-5">
-                <a class="card-film" href="{{ path('show', {'id': filtreTitreCroissant.id}) }}">
-                    <div class="realisation-section">
-                        <div class="realisation-survol">
-                            <div class="realisation-survol-content">
-                                <h5 class="text-center"><b>{{ filtreTitreCroissant.titre }}</b></h5>
-                            </div>
-                        </div>
-                        <img class="img_card img-fluid" width="300" height="500" src="{{ asset('upload/imgMovie/' ~ filtreTitreCroissant.image) }}" alt="Affiche du film '{{ filtreTitreCroissant.titre }}'" />
-                    </div>
-                </a>
-            </div>
-        {% endfor %} #}
-    </div>
-</section>
+        {% endif %}
+    </section>
 {% endblock %}
