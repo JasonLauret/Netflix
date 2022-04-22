@@ -9,8 +9,7 @@
             <a class="btn btn-danger" href="{{ path('createFilm') }}">{% trans %}Add a movie{% endtrans %}</a> {# Ajouter un film #}
         {% endif %}
         <div class="titre_filtre"></div>
-        <button class="btn btn-light border" id="btn_filtre_croissant">Ordre alphabétique</button>
-        
+        <button class="btn btn-light border" id="btn_filtre_croissant" onClick="trieAlphabetiqueCroissant()">Ordre alphabétique</button>
         {% if films is not null %}
             <div id="normale">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 d-flex justify-content-center" id="normale">
