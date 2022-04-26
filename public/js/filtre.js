@@ -3,8 +3,10 @@ const btn_filtre_alphabetique_croissant = document.getElementById("btn_filtre_cr
 const filtre_alphabetique_croissant = document.getElementById("filtre_croissant");
 const btn_filtre_alphabetique_decroissant = document.getElementById("btn_filtre_decroissant");
 const filtre_alphabetique_decroissant = document.getElementById("filtre_decroissant");
-const btn_annee_de_sortie_croissant = document.getElementById("btn_annee_de_sortie_croissant");
+const btn_filtre_annee_sortie_croissant = document.getElementById("btn_filtre_annee_sortie_croissant");
 const filtre_annee_sorti_croissant = document.getElementById("filtre_annee_sorti_croissant");
+const btn_filtre_annee_sortie_decroissant = document.getElementById("btn_filtre_annee_sortie_decroissant");
+const filtre_annee_sorti_decroissant = document.getElementById("filtre_annee_sorti_decroissant");
 
 filtre_annee_sorti_croissant
 // DIV qui va accueillir les titre 
@@ -17,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('HTML prêt !');
     filtre_alphabetique_croissant.style.display = "none";
     filtre_alphabetique_decroissant.style.display = "none";
+    filtre_annee_sorti_croissant.style.display = "none";
+    filtre_annee_sorti_decroissant.style.display = "none";
 
 });
 
@@ -47,43 +51,72 @@ document.addEventListener('DOMContentLoaded', function() {
     function trieAlphabetiqueCroissant() {
         if(getComputedStyle(normale).display != "none" || 
         getComputedStyle(filtre_alphabetique_decroissant).display != "none" || 
-        getComputedStyle(filtre_annee_sorti_croissant).display != "none"){
+        getComputedStyle(filtre_annee_sorti_croissant).display != "none" || 
+        getComputedStyle(filtre_annee_sorti_decroissant).display != "none"){
             console.log("Boutton'Ordre Alphabétique'");
-            filtre_alphabetique_croissant.style.display = "block";
             normale.style.display = "none";
-            filtre_alphabetique_decroissant.style.display = "none";
+            filtre_alphabetique_croissant.style.display = "block";
             btn_filtre_alphabetique_croissant.style.display = "none";
-            btn_annee_de_sortie_croissant.style.display = "block";
+            filtre_alphabetique_decroissant.style.display = "none";
             btn_filtre_alphabetique_decroissant.style.display = "block";
+            filtre_annee_sorti_croissant.style.display = "none";
+            btn_filtre_annee_sortie_croissant.style.display = "block";
+            filtre_annee_sorti_decroissant.style.display = "none";
+            btn_filtre_annee_sortie_decroissant.style.display = "block";
         }
     }
 
     function trieAlphabetiqueDecroissant() {
         if(getComputedStyle(normale).display != "none" || 
         getComputedStyle(filtre_alphabetique_croissant).display != "none" || 
-        getComputedStyle(filtre_annee_sorti_croissant).display != "none"){
+        getComputedStyle(filtre_annee_sorti_croissant).display != "none" || 
+        getComputedStyle(filtre_annee_sorti_decroissant).display != "none"){
             console.log("Boutton'Ordre Alphabétique décroissant'");
-            filtre_alphabetique_decroissant.style.display = "block";
             normale.style.display = "none";
             filtre_alphabetique_croissant.style.display = "none";
-            btn_filtre_alphabetique_decroissant.style.display = "none";
-            btn_annee_de_sortie_croissant.style.display = "block";
             btn_filtre_alphabetique_croissant.style.display = "block";
+            filtre_alphabetique_decroissant.style.display = "block";
+            btn_filtre_alphabetique_decroissant.style.display = "none";
+            filtre_annee_sorti_croissant.style.display = "none";
+            btn_filtre_annee_sortie_croissant.style.display = "block";
+            filtre_annee_sorti_decroissant.style.display = "none";
+            btn_filtre_annee_sortie_decroissant.style.display = "block";
         } 
     }
     
     function trieAnneeSortiCroissant() {
         if(getComputedStyle(normale).display != "none" || 
         getComputedStyle(filtre_alphabetique_croissant).display != "none" || 
-        getComputedStyle(filtre_alphabetique_decroissant).display != "none"){
+        getComputedStyle(filtre_alphabetique_decroissant).display != "none" || 
+        getComputedStyle(filtre_annee_sorti_decroissant).display != "none"){
             console.log("Boutton 'Tri année croissant'");
-            filtre_annee_sorti_croissant.style.display = "block"
             normale.style.display = "none";
             filtre_alphabetique_croissant.style.display = "none";
-            filtre_alphabetique_decroissant.style.display = "none";
-            btn_annee_de_sortie_croissant.style.display = "none";
             btn_filtre_alphabetique_croissant.style.display = "block";
+            filtre_alphabetique_decroissant.style.display = "none";
             btn_filtre_alphabetique_decroissant.style.display = "block";
+            filtre_annee_sorti_croissant.style.display = "block";
+            btn_filtre_annee_sortie_croissant.style.display = "none";
+            filtre_annee_sorti_decroissant.style.display = "none";
+            btn_filtre_annee_sortie_decroissant.style.display = "block";
+        } 
+    }
+
+    function trieAnneeSortiDeroissant() {
+        if(getComputedStyle(normale).display != "none" || 
+        getComputedStyle(filtre_alphabetique_croissant).display != "none" || 
+        getComputedStyle(filtre_alphabetique_decroissant).display != "none" || 
+        getComputedStyle(filtre_annee_sorti_croissant).display != "none"){
+            console.log("Boutton 'Tri année décroissant'");
+            filtre_annee_sorti_decroissant.style.display = "block";
+            btn_filtre_annee_sortie_decroissant.style.display = "none";
+            normale.style.display = "none";
+            filtre_alphabetique_croissant.style.display = "none";
+            btn_filtre_alphabetique_croissant.style.display = "block";
+            filtre_alphabetique_decroissant.style.display = "none";
+            btn_filtre_alphabetique_decroissant.style.display = "block";
+            filtre_annee_sorti_croissant.style.display = "none";
+            btn_filtre_annee_sortie_croissant.style.display = "block";
         } 
     }
 //
