@@ -69,16 +69,16 @@
             </div>
             <div id="filtre_annee_sorti_croissant">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 d-flex justify-content-center">
-                    {% for newestMovie in newestMovies %}
+                    {% for oldestMovie in oldestMovies %}
                         <div class="col d-flex justify-content-center g-5">
-                            <a class="card-film" href="{{ path('show', {'id': newestMovie.id}) }}">
+                            <a class="card-film" href="{{ path('show', {'id': oldestMovie.id}) }}">
                                 <div class="realisation-section">
                                     <div class="realisation-survol">
                                         <div class="realisation-survol-content">
-                                            <h5 class="text-center"><b>{{ newestMovie.titre }}</b></h5>
+                                            <h5 class="text-center"><b>{{ oldestMovie.titre }}</b></h5>
                                         </div>
                                     </div>
-                                    <img class="img_card img-fluid" width="300" height="500" src="{{ asset('upload/imgMovie/' ~ newestMovie.image) }}" alt="Affiche du film '{{ newestMovie.titre }}'" />
+                                    <img class="img_card img-fluid" width="300" height="500" src="{{ asset('upload/imgMovie/' ~ oldestMovie.image) }}" alt="Affiche du film '{{ oldestMovie.titre }}'" />
                                 </div>
                             </a>
                         </div>

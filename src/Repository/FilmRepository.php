@@ -63,7 +63,7 @@ class FilmRepository extends ServiceEntityRepository
         ;
     }
     
-    public function sortByNewestMovie()
+    public function sortByOldestMovie()
     {
         return $this->createQueryBuilder('f')
             ->orderBy('f.releaseYear', 'ASC')

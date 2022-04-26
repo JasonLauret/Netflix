@@ -20,13 +20,13 @@ class FilmController extends AbstractController
     {   
         $titreAlphabetiqueCroissant = $filmRepository->sortAscendingAlphabeticalOrder();
         $titreAlphabetiqueDecroissant = $filmRepository->sortDescendingAlphabeticalOrder();
-        $newestMovie = $filmRepository->sortByNewestMovie();
+        $oldestMovie = $filmRepository->sortByOldestMovie();
         $film = $filmRepository->findAll();
         return $this->render('film/index.html.twig', [
             'films' => $film,
             'titreAlphabetiqueCroissants' => $titreAlphabetiqueCroissant,
             'titreAlphabetiqueDecroissants' => $titreAlphabetiqueDecroissant,
-            'newestMovies' => $newestMovie
+            'oldestMovies' => $oldestMovie
         ]);
     }
     
