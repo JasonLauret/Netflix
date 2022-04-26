@@ -45,6 +45,24 @@ class FilmRepository extends ServiceEntityRepository
         }
     }
 
+    public function sortAscendingAlphabeticalOrder()
+    {
+        return $this->createQueryBuilder('f')
+            ->orderBy('f.titre', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function sortDescendingAlphabeticalOrder()
+    {
+        return $this->createQueryBuilder('f')
+            ->orderBy('f.titre', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Film[] Returns an array of Film objects
     //  */
@@ -61,15 +79,6 @@ class FilmRepository extends ServiceEntityRepository
         ;
     }
     */
-
-    public function sortAscendingAlphabeticalOrder()
-    {
-        return $this->createQueryBuilder('f')
-            ->orderBy('f.titre', 'ASC')
-            ->getQuery()
-            ->getResult()
-        ;
-    }
 
     /*
     public function findOneBySomeField($value): ?Film

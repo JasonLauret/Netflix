@@ -19,11 +19,12 @@ class FilmController extends AbstractController
     public function index(FilmRepository $filmRepository): Response
     {   
         $titreAlphabetiqueCroissant = $filmRepository->sortAscendingAlphabeticalOrder();
+        $titreAlphabetiqueDecroissant = $filmRepository->sortDescendingAlphabeticalOrder();
         $film = $filmRepository->findAll();
         return $this->render('film/index.html.twig', [
-            'controller_name' => 'FilmController',
             'films' => $film,
-            'titreAlphabetiqueCroissants' => $titreAlphabetiqueCroissant
+            'titreAlphabetiqueCroissants' => $titreAlphabetiqueCroissant,
+            'titreAlphabetiqueDecroissants' => $titreAlphabetiqueDecroissant
         ]);
     }
     
