@@ -33,6 +33,9 @@ class Film
     #[ORM\ManyToMany(targetEntity: Genre::class, inversedBy: 'films')]
     private $genre;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $releaseYear;
+
     public function __construct()
     {
         $this->genre = new ArrayCollection();
@@ -123,6 +126,18 @@ class Film
     public function removeGenre(Genre $genre): self
     {
         $this->genre->removeElement($genre);
+
+        return $this;
+    }
+
+    public function getReleaseYear(): ?int
+    {
+        return $this->releaseYear;
+    }
+
+    public function setReleaseYear(?int $releaseYear): self
+    {
+        $this->releaseYear = $releaseYear;
 
         return $this;
     }

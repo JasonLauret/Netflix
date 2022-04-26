@@ -181,6 +181,10 @@
         <source>Film genre</source>
         <target>Genre</target>
       </trans-unit>
+      <trans-unit id="Release year" resname="Release year">
+        <source>Release year</source>
+        <target>Année de sortie</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

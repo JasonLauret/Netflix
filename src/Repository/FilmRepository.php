@@ -62,6 +62,15 @@ class FilmRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+    
+    public function sortByNewestMovie()
+    {
+        return $this->createQueryBuilder('f')
+            ->orderBy('f.titre', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     // /**
     //  * @return Film[] Returns an array of Film objects

@@ -47,6 +47,7 @@
                         {{ showFilm.name }}
                     {% endfor %}
                     <p class="card-text"><small class="text-muted">{% trans %}Duration{% endtrans %}: {{ showFilm.duree }}</small></p>
+                    <p class="card-text pt-3">{% trans %}Release year{% endtrans %} : {{ showFilm.releaseYear }}</p>
                 </div>
                 {% if showFilm.movie %}
                     <div class="cardMovie d-flex justify-content-center align-items-center">

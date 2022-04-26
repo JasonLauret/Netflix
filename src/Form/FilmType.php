@@ -55,6 +55,7 @@ class FilmType extends AbstractType
                     'multiple' => true
                 )
             )
+            ->add('releaseYear')
         ;
     }
 

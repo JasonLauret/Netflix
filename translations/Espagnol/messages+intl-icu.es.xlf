@@ -178,6 +178,10 @@
         <source>Sign in</source>
         <target>Registrarse</target>
       </trans-unit>
+      <trans-unit id="Release year" resname="Release year">
+        <source>Release year</source>
+        <target>Año de lanzamiento</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
