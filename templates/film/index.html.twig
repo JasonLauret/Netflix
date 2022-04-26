@@ -8,7 +8,7 @@
         {% if is_granted('ROLE_ADMIN') %}
             <a class="btn btn-danger" href="{{ path('createFilm') }}">{% trans %}Add a movie{% endtrans %}</a> {# Ajouter un film #}
         {% endif %}
-        <div class="titre_filtre"></div>
+        <div id="titre_filtre"></div>
         <button class="btn btn-light border" id="btn_filtre_croissant" onClick="trieAlphabetiqueCroissant()">Ordre alphabétique</button>
         <button class="btn btn-light border" id="btn_filtre_decroissant" onClick="trieAlphabetiqueDecroissant()">Ordre alphabétique décroissant</button>
         <button class="btn btn-light border" id="btn_filtre_annee_sortie_croissant" onClick="trieAnneeSortiCroissant()">Année de sortie</button>

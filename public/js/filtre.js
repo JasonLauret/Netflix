@@ -8,7 +8,6 @@ const filtre_annee_sorti_croissant = document.getElementById("filtre_annee_sorti
 const btn_filtre_annee_sortie_decroissant = document.getElementById("btn_filtre_annee_sortie_decroissant");
 const filtre_annee_sorti_decroissant = document.getElementById("filtre_annee_sorti_decroissant");
 
-filtre_annee_sorti_croissant
 // DIV qui va accueillir les titre 
 const titre_filtre = document.getElementById("titre_filtre");
 
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     filtre_alphabetique_decroissant.style.display = "none";
     filtre_annee_sorti_croissant.style.display = "none";
     filtre_annee_sorti_decroissant.style.display = "none";
-
 });
 
 // Filtre trie par ordre alphabétique
@@ -48,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // });
 
     // Deuxième manière: pour que la fonction fonctionne il faut ajouter ( onClick="trieAlphabetiqueCroissant()" ) en attibut du bouton "Ordre alphabétique"
+    
     function trieAlphabetiqueCroissant() {
         if(getComputedStyle(normale).display != "none" || 
         getComputedStyle(filtre_alphabetique_decroissant).display != "none" || 
@@ -63,6 +62,12 @@ document.addEventListener('DOMContentLoaded', function() {
             btn_filtre_annee_sortie_croissant.style.display = "block";
             filtre_annee_sorti_decroissant.style.display = "none";
             btn_filtre_annee_sortie_decroissant.style.display = "block";
+            
+            let newTitle = addTitleByFilter('Trie des titres par ordre alphabétique');
+
+            // let newTitle = document.createElement('h3');
+            // newTitle.textContent = 'Trie des titres par ordre alphabétique';
+            // titre_filtre.appendChild(newTitle);
         }
     }
 
@@ -81,7 +86,11 @@ document.addEventListener('DOMContentLoaded', function() {
             btn_filtre_annee_sortie_croissant.style.display = "block";
             filtre_annee_sorti_decroissant.style.display = "none";
             btn_filtre_annee_sortie_decroissant.style.display = "block";
-        } 
+
+            let newTitle = document.createElement('h3');
+            newTitle.textContent = 'Trie des titres par ordre alphabétique décroissant';
+            titre_filtre.appendChild(newTitle);
+        }
     }
     
     function trieAnneeSortiCroissant() {
@@ -99,6 +108,10 @@ document.addEventListener('DOMContentLoaded', function() {
             btn_filtre_annee_sortie_croissant.style.display = "none";
             filtre_annee_sorti_decroissant.style.display = "none";
             btn_filtre_annee_sortie_decroissant.style.display = "block";
+
+            let newTitle = document.createElement('h3');
+            newTitle.textContent = 'Trie des titres par ordre alphabétique';
+            titre_filtre.appendChild(newTitle);
         } 
     }
 
@@ -118,5 +131,10 @@ document.addEventListener('DOMContentLoaded', function() {
             filtre_annee_sorti_croissant.style.display = "none";
             btn_filtre_annee_sortie_croissant.style.display = "block";
         } 
+    }
+
+    function addTitleByFilter(title){
+        // supprimer tous se qu'il y a dans la div
+        // créer le titre 
     }
 //
