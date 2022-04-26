@@ -66,7 +66,7 @@ class FilmRepository extends ServiceEntityRepository
     public function sortByNewestMovie()
     {
         return $this->createQueryBuilder('f')
-            ->orderBy('f.titre', 'DESC')
+            ->orderBy('f.releaseYear', 'ASC')
             ->getQuery()
             ->getResult()
         ;

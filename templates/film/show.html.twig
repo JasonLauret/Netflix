@@ -43,11 +43,30 @@
                 <div class="cardText">
                     <h5 class="card-title pt-3"><b>{{ showFilm.titre }}</b></h5>
                     <p class="card-text pt-3">{{ showFilm.description }}</p>
-                    {% for showFilm in showFilm.genre %}
-                        {{ showFilm.name }}
-                    {% endfor %}
-                    <p class="card-text"><small class="text-muted">{% trans %}Duration{% endtrans %}: {{ showFilm.duree }}</small></p>
-                    <p class="card-text pt-3">{% trans %}Release year{% endtrans %} : {{ showFilm.releaseYear }}</p>
+                    <p>
+                        {% trans %}Film genre{% endtrans %}:
+                        {% for showFilm in showFilm.genre %}
+                            {{ showFilm.name }}
+                        {% endfor %}
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            {% trans %}Duration{% endtrans %}:
+                            {% if showFilm.duree %}
+                                {{ showFilm.duree }}
+                            {% else %}
+                                inconnu
+                            {% endif %}
+                        </small>
+                    </p>
+                    <p class="card-text">
+                        {% trans %}Release year{% endtrans %} : 
+                        {% if showFilm.releaseYear %}
+                            {{ showFilm.releaseYear }}
+                        {% else %}
+                            inconnu
+                        {% endif %}
+                    </p>
                 </div>
                 {% if showFilm.movie %}
                     <div class="cardMovie d-flex justify-content-center align-items-center">
