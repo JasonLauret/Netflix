@@ -4,15 +4,24 @@
 
 {% block body %}
     <section class="pageListFilm">
-        <h2>{% trans %}List of movies{% endtrans %}</h2>
-        {% if is_granted('ROLE_ADMIN') %}
-            <a class="btn btn-danger" href="{{ path('createFilm') }}">{% trans %}Add a movie{% endtrans %}</a> {# Ajouter un film #}
-        {% endif %}
+        <div class="d-flex">
+            <h2>{% trans %}List of movies{% endtrans %}</h2>
+            {% if is_granted('ROLE_ADMIN') %}
+            <div class="btn_add_movie">
+                <a class="btn btn-danger" href="{{ path('createFilm') }}">{% trans %}Add a movie{% endtrans %}</a>
+            </div>
+            {% endif %}
+        </div>
+        <div class="right-menu">
+            <button class="menu-button">Trier par<i class="bi bi-arrow-down-short"></i></button>
+            <div class="dropdown-menu">
+                <a class="" id="btn_filtre_croissant" onClick="trieAlphabetiqueCroissant()">Ordre alphabétique</a>
+                <a class="" id="btn_filtre_decroissant" onClick="trieAlphabetiqueDecroissant()">Ordre alphabétique décroissant</a>
+                <a class="" id="btn_filtre_annee_sortie_croissant" onClick="trieAnneeSortiCroissant()">Année : par ordre croissant</a>
+                <a class="" id="btn_filtre_annee_sortie_decroissant" onClick="trieAnneeSortiDeroissant()">Année : par ordre décroissant</a>
+            </div>
+        </div>
         <div id="title_filter"></div>
-        <button class="btn btn-light border" id="btn_filtre_croissant" onClick="trieAlphabetiqueCroissant()">Ordre alphabétique</button>
-        <button class="btn btn-light border" id="btn_filtre_decroissant" onClick="trieAlphabetiqueDecroissant()">Ordre alphabétique décroissant</button>
-        <button class="btn btn-light border" id="btn_filtre_annee_sortie_croissant" onClick="trieAnneeSortiCroissant()">Année de sortie</button>
-        <button class="btn btn-light border" id="btn_filtre_annee_sortie_decroissant" onClick="trieAnneeSortiDeroissant()">Année de sortie décroissant</button>
         {% if films is not null %}
             <div id="normale">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 d-flex justify-content-center" id="normale">

@@ -23,8 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     filtre_annee_sorti_decroissant.style.display = "none";
 });
 
+
+// Création d'un titre
 function addTitleByFilter(title){
-    // Création d'un titre
     // Solution 1
     // Crée un nouvel élément h3
     const newH3 = document.createElement("h3");
@@ -132,7 +133,7 @@ function addTitleByFilter(title){
 
             title_filter.innerHTML = "";
             let newTitle = document.createElement('h3');
-            newTitle.textContent = 'Trier par année de sortie croissant';
+            newTitle.textContent = 'Trie par année de sortie croissant';
             title_filter.appendChild(newTitle);
         } 
     }
@@ -155,7 +156,7 @@ function addTitleByFilter(title){
 
             title_filter.innerHTML = "";
             let newTitle = document.createElement('h3');
-            newTitle.textContent = 'Trier par année de sortie décroissant';
+            newTitle.textContent = 'Trie par année de sortie décroissant';
             title_filter.appendChild(newTitle);
         } 
     }
