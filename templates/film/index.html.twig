@@ -5,26 +5,36 @@
 {% block body %}
     <section class="pageListFilm">
         <div class="d-flex">
-            <h2>{% trans %}List of movies{% endtrans %}</h2>
+            <h2>{% trans %}List of movies <span>bien</span>{% endtrans %}</h2>
             {% if is_granted('ROLE_ADMIN') %}
             <div class="btn_add_movie">
                 <a class="btn btn-danger" href="{{ path('createFilm') }}">{% trans %}Add a movie{% endtrans %}</a>
             </div>
             {% endif %}
         </div>
-        <div class="right-menu">
-            <button class="menu-button">Trier par<i class="bi bi-arrow-down-short"></i></button>
-            <div class="dropdown-menu">
-                <a class="" id="btn_filtre_croissant" onClick="trieAlphabetiqueCroissant()">Ordre alphabétique</a>
-                <a class="" id="btn_filtre_decroissant" onClick="trieAlphabetiqueDecroissant()">Ordre alphabétique décroissant</a>
-                <a class="" id="btn_filtre_annee_sortie_croissant" onClick="trieAnneeSortiCroissant()">Année : par ordre croissant</a>
-                <a class="" id="btn_filtre_annee_sortie_decroissant" onClick="trieAnneeSortiDeroissant()">Année : par ordre décroissant</a>
-            </div>
-        </div>
+        <ul class="menuFiltre">
+            <li class="btnDeroulant">
+                <a>Trier par<i class="bi bi-arrow-down-short"></i></a>
+                <ul class="menuDeroulant">
+                    <li>
+                        <a id="btn_filtre_croissant" onClick="trieAlphabetiqueCroissant()">Ordre alphabétique</a>
+                    </li>
+                    <li>
+                        <a id="btn_filtre_decroissant" onClick="trieAlphabetiqueDecroissant()">Ordre alphabétique décroissant</a>
+                    </li>
+                    <li>
+                        <a id="btn_filtre_annee_sortie_croissant" onClick="trieAnneeSortiCroissant()">Année : par ordre croissant</a>            
+                    </li>
+                    <li>
+                        <a id="btn_filtre_annee_sortie_decroissant" onClick="trieAnneeSortiDeroissant()">Année : par ordre décroissant</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
         <div id="title_filter"></div>
         {% if films is not null %}
             <div id="normale">
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 d-flex justify-content-center" id="normale">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 d-flex justify-content-center">
                     {% for film in films %}
                         <div class="col d-flex justify-content-center g-5">
                             <a class="card-film" href="{{ path('show', {'id': film.id}) }}">
