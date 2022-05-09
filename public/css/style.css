@@ -160,12 +160,11 @@ a.card-film {
 }
 
 .cardText, .cardMovie {
-    height: 50%;
     width: 100%;
 }
 
 div.cardMovie video {
-    padding-bottom: 100px;
+    padding-top: 10px;
     width: 80%;
     border-radius: 5px;
 }

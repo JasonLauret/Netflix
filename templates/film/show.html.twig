@@ -4,9 +4,9 @@
 
 {% block body %}
     <section class="pageShowFilm">
-        <div class="text-center d-block d-md-flex">
-            <h2><b>{{ showFilm.titre }}</b> </h2>
-            {% if is_granted('ROLE_ADMIN') %}
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="text-center d-block d-md-flex">
+                <h2><b>{{ showFilm.titre }}</b></h2>
                 <div>
                     <a class="btn btn-secondary ms-3" href="{{ path('editFilm', {'id': film.id}) }}">{% trans %}Edit Movie{% endtrans %}</a>
                     <button type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" href="#modalDeleteFilm">
@@ -34,6 +34,8 @@
                     </div>
                 </div>
             </div>
+        {% else %}
+            <h2><b>{{ showFilm.titre }}</b></h2>
         {% endif %}
         <div class="carte border row">
             <div class="partiImage col-md-12 col-lg-5 p-0">
