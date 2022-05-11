@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+
+{% block body %}
+    <section class="pageListCategory">
+        <h2>{% trans %}List of category{% endtrans %}</h2> {# Liste des genres #}
+        <a class="btn btn-danger mb-3" href="{{ path('createGenre') }}">{% trans %}Add a category{% endtrans %}</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{% trans %}Name{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category in categorys %}
+                <tr>
+                    <td>{{ category.name }}</td>
+                    <td>
+                        {# <a class="btn btn-danger" href="{{ path('editCategory', {'id': category.id}) }}">{% trans %}To modify{% endtrans %}</a> #}
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="3">{% trans %}No category found{% endtrans %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}
