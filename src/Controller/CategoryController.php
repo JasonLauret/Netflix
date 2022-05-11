@@ -47,4 +47,13 @@ class CategoryController extends AbstractController
             'editMode' => $category->getId() !== null
         ]);
     }
+
+    #[Route('a/category/remove/{id}', name: 'removeCategory')]
+    public function remove(Category $category, EntityManagerInterface $em): Response
+    {
+        $em->remove($category);
+        $em->flush();
+
+        return $this->redirectToRoute('category');
+    }
 }
