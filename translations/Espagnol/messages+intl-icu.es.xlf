@@ -17,6 +17,14 @@
         <source>Users</source>
         <target>Usuarios</target>
       </trans-unit>
+      <trans-unit id="OnqBk.y" resname="Users list">
+        <source>Users list</source>
+        <target>Lista de usuarios</target>
+      </trans-unit>
+      <trans-unit id="s6KYofM" resname="No user found">
+        <source>No user found</source>
+        <target>Ningún usuario encontrado</target>
+      </trans-unit>
       <trans-unit id="GF_NsyJ" resname="Hello">
         <source>Hello</source>
         <target>Hola</target>
@@ -178,9 +186,57 @@
         <source>Sign in</source>
         <target>Registrarse</target>
       </trans-unit>
-      <trans-unit id="Release year" resname="Release year">
+      <trans-unit id="atone2_" resname="Release year">
         <source>Release year</source>
         <target>Año de lanzamiento</target>
+      </trans-unit>
+      <trans-unit id="zMOqrK8" resname="Editing the category">
+        <source>Editing the category</source>
+        <target>Editando la categoría</target>
+      </trans-unit>
+      <trans-unit id="dqW1SWJ" resname="Add a category">
+        <source>Add a category</source>
+        <target>__Add a category</target>
+      </trans-unit>
+      <trans-unit id="4Ze.kRs" resname="List of category">
+        <source>List of category</source>
+        <target>Lista de categoría</target>
+      </trans-unit>
+      <trans-unit id="4tClSWj" resname="Delete">
+        <source>Delete</source>
+        <target>Borrar</target>
+      </trans-unit>
+      <trans-unit id="5jig2st" resname="You are about to delete this category">
+        <source>You are about to delete this category</source>
+        <target>Estás a punto de eliminar esta categoría</target>
+      </trans-unit>
+      <trans-unit id="5X5jsuh" resname="No category found">
+        <source>No category found</source>
+        <target>No se encontró ninguna categoría</target>
+      </trans-unit>
+      <trans-unit id="RsyWeyy" resname="Categorys">
+        <source>Categorys</source>
+        <target>Categorías</target>
+      </trans-unit>
+      <trans-unit id="htiPHRy" resname="Lastname">
+        <source>Lastname</source>
+        <target>Apellido</target>
+      </trans-unit>
+      <trans-unit id="ZHz6kbI" resname="Firstname">
+        <source>Firstname</source>
+        <target>Nombre de pila</target>
+      </trans-unit>
+      <trans-unit id="WXzoaGl" resname="Birthdate">
+        <source>Birthdate</source>
+        <target>Fecha de nacimiento</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>Correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="FHNqLrn" resname="Role">
+        <source>Role</source>
+        <target>Role</target>
       </trans-unit>
     </body>
   </file>
