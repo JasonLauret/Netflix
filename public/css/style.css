@@ -2,6 +2,11 @@ body {
     padding-top: 76px;
 }
 
+/*-----Fil d'ariane-----*/
+.filDariane ul li {
+    list-style: none;
+}
+
 /*-----Navbar-----*/
 nav.nav_head {
     position: fixed;

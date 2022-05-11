@@ -49,7 +49,7 @@
                     {% endfor %}
                 </ul>
             </div>
-            <p class="text-white me-5 fs-5">
+            <p class="text-white me-5 pt-3 fs-5">
                 {% if is_granted('ROLE_ADMIN') %}
                     {% trans %}Hello{% endtrans %} <b>{{ app.user.firstName }}</b> ! {% trans %}You are{% endtrans %} ADMIN
                 {% elseif app.user %}
