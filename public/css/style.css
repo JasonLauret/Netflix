@@ -3,6 +3,11 @@ body {
 }
 
 /*-----Fil d'ariane-----*/
+ul.filDariane li {
+    list-style: none;
+}
+
+/* Coder en dur */
 .filDariane ul li {
     list-style: none;
 }

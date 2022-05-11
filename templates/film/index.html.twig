@@ -5,7 +5,7 @@
 {% block body %}
     <section class="pageListFilm">
         <div class="d-flex">
-            <h2>{% trans %}List of movies <span>bien</span>{% endtrans %}</h2>
+            <h2>{% trans %}List of movies <span></span>{% endtrans %}</h2>
             {% if is_granted('ROLE_ADMIN') %}
             <div class="btn_add_movie">
                 <a class="btn btn-danger" href="{{ path('createFilm') }}">{% trans %}Add a movie{% endtrans %}</a>
