@@ -9,30 +9,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('film') }}">{% trans %}Movie{% endtrans %}</a>
                 </li>
-                {% if is_granted('ROLE_ADMIN') %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('genre') }}">{% trans %}Film genre{% endtrans %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('users') }}">{% trans %}Users{% endtrans %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('category') }}">{% trans %}Categorys{% endtrans %}</a>
-                    </li>
-                {% endif %}
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <a class="nav-link" href="#">Serie</a>
+                </li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestion</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
+                        <a class="dropdown-item" href="{{ path('genre') }}">{% trans %}Film genre{% endtrans %}</a>
+                        <a class="dropdown-item" href="{{ path('users') }}">{% trans %}Users{% endtrans %}</a>
+                        <a class="dropdown-item" href="{{ path('category') }}">{% trans %}Categorys{% endtrans %}</a>
                     </div>
                 </li>
+                {% endif %}
             </ul>
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle me-4" id="dropdownMenuLink" data-bs-toggle="dropdown" >
