@@ -15,22 +15,6 @@
     <body>
         {% include 'content/includes/navbar.html.twig' %}
 
-        <div class="filDariane container">
-            <ul class="d-flex">
-                <li>
-                    <a href="">Accueil </a>
-                </li>
-                <li>
-                    <a href="">/ Film </a>
-                </li>
-                <li>
-                    <a href="">/ Intouchable </a>
-                </li>
-            </ul>
-        </div>
-
-        {{ render(path('breadcrumb')) }}
-
         <div class="container">
             {% block body %}{% endblock %}
         </div>
