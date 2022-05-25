@@ -2,6 +2,10 @@ body {
     padding-top: 76px;
 }
 
+a {
+    text-decoration: none;
+}
+
 /*-----Fil d'ariane-----*/
 ul.filDariane li {
     list-style: none;
@@ -179,6 +183,13 @@ div.cardMovie video {
     border-radius: 5px;
 }
 
+a.retour {
+    color: black;
+}
+a.retour:hover {
+    color: rgb(255, 0, 0);
+    text-decoration: underline;
+}
 @media screen and (max-width: 991px){
     div.cardMovie>video {
         padding-bottom: 100px;

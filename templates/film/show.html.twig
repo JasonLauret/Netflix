@@ -4,6 +4,10 @@
 
 {% block body %}
     <section class="pageShowFilm">
+        <a class="retour" href="{{ path('film') }}">
+            <i class="bi bi-arrow-left-short fs-4"></i>
+            <span>{% trans %}List of movies{% endtrans %}</span>
+        </a>
         {% if is_granted('ROLE_ADMIN') %}
             <div class="text-center d-block d-md-flex">
                 <h2><b>{{ showFilm.titre }}</b></h2>
