@@ -36,6 +36,12 @@ class Film
     #[ORM\Column(type: 'integer', nullable: true)]
     private $releaseYear;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $likeIt;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $dontLike;
+
     public function __construct()
     {
         $this->genre = new ArrayCollection();
@@ -138,6 +144,30 @@ class Film
     public function setReleaseYear(?int $releaseYear): self
     {
         $this->releaseYear = $releaseYear;
+
+        return $this;
+    }
+
+    public function getLikeIt(): ?int
+    {
+        return $this->likeIt;
+    }
+
+    public function setLikeIt(?int $likeIt): self
+    {
+        $this->likeIt = $likeIt;
+
+        return $this;
+    }
+
+    public function getDontLike(): ?int
+    {
+        return $this->dontLike;
+    }
+
+    public function setDontLike(?int $dontLike): self
+    {
+        $this->dontLike = $dontLike;
 
         return $this;
     }
