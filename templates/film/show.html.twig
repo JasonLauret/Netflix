@@ -47,7 +47,15 @@
             </div>
             <div class="partiDescription col-md-12 col-lg-7">
                 <div class="cardText">
-                    <h5 class="card-title pt-3"><b>{{ showFilm.titre }}</b></h5>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h5 class="card-title pt-3"><b>{{ showFilm.titre }}</b></h5>
+                        </div>
+                        <div class="pt-2">
+                            <button href="{{ path('like') }}" class="btn btn-success"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button href="{{ path('dontLike') }}" class="btn btn-danger"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                    </div>
                     <p class="card-text pt-3">{{ showFilm.description }}</p>
                     <p>
                         {% trans %}Film genre{% endtrans %}:
