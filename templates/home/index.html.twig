@@ -4,9 +4,8 @@
 
 {% block body %}
     <h1 class="">{% trans %}Welcome{% endtrans %}</h1>
-    {% for message in app.flashes('message') %}
-        {{ message }}
-    {% endfor %}
-
-    <p>{% trans %}This is a message that will be translated{% endtrans %}</p>
+    
+    <section>
+        <h2>Top 3 des film les mieux noté</h2>
+    </section>
 {% endblock %}
