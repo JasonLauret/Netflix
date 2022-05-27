@@ -45,6 +45,7 @@ class Film
     public function __construct()
     {
         $this->genre = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int

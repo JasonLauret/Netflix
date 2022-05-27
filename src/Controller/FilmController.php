@@ -112,4 +112,24 @@ class FilmController extends AbstractController
 
         return $this->redirectToRoute('film');
     }
+
+    // #[Route('film/like/{id}', name:'like')]
+    // public function like(Film $film, EntityManagerInterface $em){
+    //     $like = $film->getLikeIt();
+    //     $oneMore = $like + 1;
+    //     //dd($oneMore);
+    //     $film->setLikeIt($oneMore);
+    //     $em->flush();
+    //     return $this->redirectToRoute('show');
+    // }
+
+    // #[Route('film/dontLike/{id}', name:'dontLike')]
+    // public function dontLike(Film $film/*, EntityManagerInterface $em*/){
+    //     $like = $film->getLikeIt();
+    //     $oneMore = $like - 1;
+    //     dd($oneMore);
+    //     // $em->persist($oneMore);
+    //     // $em->flush();
+    // }
+
 }

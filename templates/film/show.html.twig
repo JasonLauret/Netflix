@@ -52,8 +52,12 @@
                             <h5 class="card-title pt-3"><b>{{ showFilm.titre }}</b></h5>
                         </div>
                         <div class="pt-2">
-                            <button href="{{ path('like') }}" class="btn btn-success"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button href="{{ path('dontLike') }}" class="btn btn-danger"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <a class="btn btn-success" onClick="callPHP()"><i class="bi bi-hand-thumbs-up"></i></a>
+                            <a class="btn btn-danger" onClick="callPHP()"><i class="bi bi-hand-thumbs-up"></i></a>
+                            {# <form id="likeDontLike" action="">
+                                <input type="submit" name="like" value="like">
+                                <input type="submit" name="dontLike" value="Don't like">
+                            </form> #}
                         </div>
                     </div>
                     <p class="card-text pt-3">{{ showFilm.description }}</p>
