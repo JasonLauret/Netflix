@@ -42,6 +42,9 @@ class Film
     #[ORM\Column(type: 'integer', nullable: true)]
     private $dontLike;
 
+    #[ORM\OneToMany(mappedBy: 'film', targetEntity: FilmLike::class)]
+    private $likes;
+
     public function __construct()
     {
         $this->genre = new ArrayCollection();
@@ -169,6 +172,36 @@ class Film
     public function setDontLike(?int $dontLike): self
     {
         $this->dontLike = $dontLike;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, FilmLike>
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(FilmLike $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setFilm($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(FilmLike $like): self
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getFilm() === $this) {
+                $like->setFilm(null);
+            }
+        }
 
         return $this;
     }
