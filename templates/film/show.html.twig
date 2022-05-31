@@ -52,12 +52,22 @@
                             <h5 class="card-title pt-3"><b>{{ showFilm.titre }}</b></h5>
                         </div>
                         <div class="pt-2">
-                            <a class="btn btn-success" onClick="callPHP()"><i class="bi bi-hand-thumbs-up"></i></a>
-                            <a class="btn btn-danger" onClick="callPHP()"><i class="bi bi-hand-thumbs-up"></i></a>
-                            {# <form id="likeDontLike" action="">
-                                <input type="submit" name="like" value="like">
-                                <input type="submit" name="dontLike" value="Don't like">
-                            </form> #}
+                            <a class="btn btn-success js-like-link" href="{{ path('film_like', {'id': film.id}) }}">
+                                {% if app.user and film.isLikeByUsers(app.user) %}
+                                    <i class="bi bi-hand-thumbs-up-fill"></i>
+                                {% else %}
+                                    <i class="bi bi-hand-thumbs-up"></i>
+                                {% endif %}
+                                <span class="js-likes">{{ film.likes | length }}</span>
+                                <span class="js-label">J'aime</span>
+                            </a>
+                            {#<a class="btn btn-danger js-like-link" href=" {{ path('film_like', {'id': film.id}) }} ">
+                                {% if app.user and film.isLikeByUsers(app.user) %}
+                                    <i class="bi bi-hand-thumbs-down"></i>
+                                {% else %}
+                                    <i class="bi bi-hand-thumbs-down-fill"></i>
+                                {% endif %}
+                            </a>#}
                         </div>
                     </div>
                     <p class="card-text pt-3">{{ showFilm.description }}</p>

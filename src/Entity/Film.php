@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use App\Entity\User;
 use App\Repository\FilmRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -204,5 +204,21 @@ class Film
         }
 
         return $this;
+    }
+        
+    /**
+     * Permet de savoir si cet article est liké par un utilisateur
+     *
+     * @param  User $user
+     * @return bool
+     */
+    public function isLikeByUsers (User $user) {
+        foreach($this->likes as $like) {
+            if ($like->getUser() === $user){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 }

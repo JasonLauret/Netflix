@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Film;
+use App\Entity\FilmLike;
 use App\Form\FilmType;
+use App\Repository\FilmLikeRepository;
 use App\Repository\FilmRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -113,23 +115,43 @@ class FilmController extends AbstractController
         return $this->redirectToRoute('film');
     }
 
-    // #[Route('film/like/{id}', name:'like')]
-    // public function like(Film $film, EntityManagerInterface $em){
-    //     $like = $film->getLikeIt();
-    //     $oneMore = $like + 1;
-    //     //dd($oneMore);
-    //     $film->setLikeIt($oneMore);
-    //     $em->flush();
-    //     return $this->redirectToRoute('show');
-    // }
+    #[Route('film/{id}/like', name:'film_like')]
+    public function like(Film $film, EntityManagerInterface $em, FilmLikeRepository $filmLikeRepo) : Response{
+        $user = $this->getUser();
+        if(!$user){ 
+            return $this->json([
+                'code' => 403,
+                'message' => 'Unauthorized'
+            ], 403);
+        }
 
-    // #[Route('film/dontLike/{id}', name:'dontLike')]
-    // public function dontLike(Film $film/*, EntityManagerInterface $em*/){
-    //     $like = $film->getLikeIt();
-    //     $oneMore = $like - 1;
-    //     dd($oneMore);
-    //     // $em->persist($oneMore);
-    //     // $em->flush();
-    // }
+        if($film->isLikeByUsers($user)){
+            $like = $filmLikeRepo->findOneBy([
+                'film' => $film,
+                'user' => $user
+            ]);
 
+            $em->remove($like);
+            $em->flush();
+
+            return $this->json([
+                'code' => 200,
+                'message' => 'Like bien supprimé',
+                'likes' => $filmLikeRepo->count(['film' => $film])
+            ], 200);
+        }
+
+        $like = new FilmLike();
+        $like->setFilm($film)
+            ->setUser($user);
+        
+        $em->persist($like);
+        $em->flush();
+
+        return $this->json([
+            'code' => 200, 
+            'message' => 'Like bien ajouté',
+            'likes' => $filmLikeRepo->count(['film' => $film])
+        ], 200);
+    }
 }
